@@ -1,0 +1,21 @@
+<html>
+<head>
+<title> issue form</title>
+</head>
+<body>
+
+<form action="localUpdate.php" method="POST">
+<p>Project key</p> <input type="text" name="project_key">
+<p>Summary</p> <input type="text" name="summary">
+<p>Description</p> <input type="text" name="description">
+<p>Issue Type</p> 
+<select name="issuetype">
+  <option value="Bug">Bug</option>
+  <option value="Task">Task</option>
+  <option value="Story">Story</option>
+<select>
+<input type="submit" value="submit">
+<input type="reset" value="clear">
+</form>
+</body>
+</html>
