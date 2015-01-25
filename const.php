@@ -8,7 +8,7 @@ $dbpass = "vai";
 $dbuse = 'jira';
 
 //email
-$email_hostname = '{imap.mail.me.com:993/imap/ssl}INBOX';
-$email_username = 'vaibhavdesai';
-$email_password = 'Rabbit@1';
+$email_hostname = '{imap.secureserver.net:993/imap/ssl}INBOX';
+$email_username = 'mailtome@vaibhavjdesai.com';
+$email_password = '********';
 ?>
