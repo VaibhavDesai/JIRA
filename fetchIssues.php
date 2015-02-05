@@ -53,11 +53,3 @@
 	}
 	
 ?>
-<html>
-<head>
-</head>
-<body>
-<a href="http://ec2-54-84-127-175.compute-1.amazonaws.com/JIRA/">Back Home</a>
-</body>
-</html>
-
