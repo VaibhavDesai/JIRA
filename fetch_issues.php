@@ -8,7 +8,7 @@
 		 );
 
 	//project_key is taken from the const.php
-	$url = "https://sirnatope.atlassian.net/rest/api/2/search?jql=project=$project_key";
+	$url = $base_url."/rest/api/2/search?jql=project=$project_key";
 	
 	$chandler = curl_init();
 	
