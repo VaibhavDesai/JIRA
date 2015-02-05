@@ -12,6 +12,6 @@ $base_url = 'https://ravikiran.atlassian.net';
 
 //email
 $email_hostname = '{imap.mail.me.com:993/imap/ssl}INBOX';
-$email_username = '************';
-$email_password = '**********';
+$email_username = 'vaibhavdesai';
+$email_password = 'Rabbit@1';
 ?>
