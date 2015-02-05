@@ -1,12 +1,21 @@
-1;3409;0c<html>
+<html>
 <head>
-<title>JIRA project</title>
+<title> issue form</title>
 </head>
 <body>
-<h1>home</h1>
-<button onclick="location.href='http://ec2-54-84-127-175.compute-1.amazonaws.com/JIRA/createIssues.html'" id="createIssues">Create Issues</button>
-<button onclick="location.href='http://ec2-54-84-127-175.compute-1.amazonaws.com/JIRA/uploadIssues.php'" id="uploadIssues">Upload Issues</button>
-<button onclick="location.href='http://ec2-54-84-127-175.compute-1.amazonaws.com/JIRA/fetch_issues.php'" id="fetchAndSync">Fetch and Sync</button>
 
+<form action="localUpdate.php" method="POST">
+<p>Project key</p> <input type="text" name="project_key">
+<p>Summary</p> <input type="text" name="summary">
+<p>Description</p> <input type="text" name="description">
+<p>Issue Type</p> 
+<select name="issuetype">
+  <option value="Bug">Bug</option>
+  <option value="Task">Task</option>
+  <option value="Story">Story</option>
+<select>
+<input type="submit" value="submit">
+<input type="reset" value="clear">
+</form>
 </body>
 </html>
