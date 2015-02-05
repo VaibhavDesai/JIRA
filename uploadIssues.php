@@ -14,7 +14,7 @@ $headers = array(
 curl_setopt_array(
 	$handle,
 	array(
-	CURLOPT_URL=>'https://sirnatope.atlassian.net/rest/api/2/issue/',
+	CURLOPT_URL=>$base_url.'/rest/api/2/issue/',
 	CURLOPT_POST=>true,
 	CURLOPT_VERBOSE=>1,
 	CURLOPT_SSL_VERIFYHOST=> 0,
@@ -36,7 +36,7 @@ $count = 0;
 
 while($row = mysql_fetch_array($result, MYSQL_NUM))
 {
-	echo "<br>";
+	echo "<br>$row[1]";
 
 	$data = <<<JSON
 	{
