@@ -11,4 +11,7 @@ This project extracts issues, bugs and other info from the email account given i
 
 Installing dependences: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04
 
-Enable imap by running following commands: sudo apt-get install php5-imap sudo php5enmod imap sudo service apache2 restart
+Enable imap by running following commands: 
+sudo apt-get install php5-imap
+sudo php5enmod imap
+sudo service apache2 restart
