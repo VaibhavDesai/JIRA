@@ -1,14 +1,17 @@
 <?php
+
+//atlassian settings
 $username ='innohabit321';
 $password ='innohabit321';
 $project_key = 'WOIS';
-$dbhost = "localhost:3036";
-$dbuser = "root";
-$dbpass = "vai";
-$dbname = 'jira';
-
-//atlassian base url
 $base_url = 'https://ravikiran.atlassian.net';
+
+//db settings.
+$dbhost = ":/cloudsql/spartan-archive-846:db-test";
+$dbuser = "root";
+$dbpass = "root";
+$db_tmep = 'jira_temp';
+$db_master = 'woisesdb';
 
 //email
 $email_hostname = '{imap.mail.me.com:993/imap/ssl}INBOX';
