@@ -4,7 +4,7 @@ $password ='innohabit321';
 $project_key = 'WOIS';
 $dbhost = "localhost:3036";
 $dbuser = "root";
-$dbpass = "vai";
+$dbpass = "root";
 $dbname = 'jira';
 
 //atlassian base url
