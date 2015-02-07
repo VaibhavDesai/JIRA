@@ -1,4 +1,4 @@
-B<?php
+<?php
 
 //atlassian settings
 $username ='innohabit321';
