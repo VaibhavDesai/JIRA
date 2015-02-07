@@ -52,11 +52,11 @@
 		mysql_select_db($GLOBALS['dbname']);
 
 		$sql = "INSERT INTO ".$GLOBALS['master_table'].
-		     "(i_id,IdeaTitle,SUMMARY,DESCRIPTION,issuetype,PRIORITY,issuestatus)".
+		     "(jira_id,IdeaTitle,SUMMARY,DESCRIPTION,issuetype,PRIORITY,issuestatus)".
 		     " VALUES('$id','$key','$summary','$nd','$issuetype','$priority','$status')";
 		
 
-		$sqlupdate = "UPDATE issues SET SUMMARY='$summary',DESCRIPTION='$nd',issuetype='$issuetype', issuetype='$priority',issuestatus='$status' WHERE i_id='$id'";
+		$sqlupdate = "UPDATE ".$GLOBALS['master_table']." SET SUMMARY='$summary',DESCRIPTION='$nd',issuetype='$issuetype', issuetype='$priority',issuestatus='$status' WHERE jira_id='$id'";
 		
 		$record_check = "SELECT 1 FROM issues WHERE i_id='$id'";
 		if(mysql_num_rows(mysql_query($record_check,$conn))== 0)
