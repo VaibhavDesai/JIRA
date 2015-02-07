@@ -12,16 +12,12 @@
 	function createDatabase()
 	{
 		$create_db = "CREATE DATABASE ".$GLOBALS['dbname'].";";
-		$create_table = "CREATE TABLE issues(".
+		$create_table = "CREATE TABLE jira_temp(".
 			      "_id int(11) not null auto_increment,".
-			      "i_id int(11) null,".
-			      "i_key varchar(100) not null,".
-			      "i_summary varchar(500) not null,".
-			      "i_description varchar(500) not null,".
-			      "i_type varchar(50) not null,".
-			      "i_priority varchar(50) null,".
-			      "i_status varchar(50) null,".
-			      "sync boolean DEFAULT false,".
+			      "project_key varchar(100) not null,".
+			      "summary varchar(500) not null,".
+			      "description varchar(500) not null,".
+			      "issuetype varchar(50) not null,".
 			      "PRIMARY KEY(_id));";
 
 		try
@@ -55,12 +51,12 @@
 		
 		mysql_select_db($GLOBALS['dbname']);
 
-		$sql = "INSERT INTO issues".
-		     "(i_id,i_key,i_summary,i_description,i_type,i_priority,i_status,sync)".
-		     " VALUES('$id','$key','$summary','$nd','$issuetype','$priority','$status','1')";
+		$sql = "INSERT INTO ".$GLOBALS['master_table'].
+		     "(i_id,IdeaTitle,SUMMARY,DESCRIPTION,issuetype,PRIORITY,issuestatus)".
+		     " VALUES('$id','$key','$summary','$nd','$issuetype','$priority','$status')";
 		
 
-		$sqlupdate = "UPDATE issues SET i_summary='$summary',i_description='$nd',i_type='$issuetype', i_priority='$priority',i_status='$status',sync='1' WHERE i_id='$id'";
+		$sqlupdate = "UPDATE issues SET SUMMARY='$summary',DESCRIPTION='$nd',issuetype='$issuetype', issuetype='$priority',issuestatus='$status' WHERE i_id='$id'";
 		
 		$record_check = "SELECT 1 FROM issues WHERE i_id='$id'";
 		if(mysql_num_rows(mysql_query($record_check,$conn))== 0)
@@ -83,8 +79,8 @@
 		$conn = DBConnection();		
 		mysql_select_db($GLOBALS['dbname']);
 
-		$sql = "INSERT INTO issues(i_key,i_summary,i_description,i_type) VALUES ('$project_key','$summary','$description','$issuetype')";
-				
+		$sql = "INSERT INTO ".$GLOBAL['temp_jira_table']."(project_key,summary,description,issuetype) VALUES('$project_key','$summary','$description','$issuetype')";
+						
 		if(mysql_query($sql,$conn))
 			echo " New record updated!!</br>";
 		else
@@ -94,28 +90,25 @@
 
 	function fetchTempData()
 	{	 
-		$conn = DBConnection();
-		mysql_select_db($GLOBALS['dbname']);
+	 	$conn = DBConnection();
+		mysql_select_db($GLOBAL['dbname']);
 
-		$sql = "SELECT _id,i_key,i_summary,i_description,i_type FROM issues WHERE i_id IS NULL";
-
+		$sql = 'SELECT _id,project_key,summary,description,issuetype FROM '.$GLOBAL['temp_jira_table'];
 		$result = mysql_query($sql,$conn);
 		if(! $result)
-			die("Couldnt get data:".mysql_error());
+			{ die("Couldnt get data:".mysql_error());}
 		echo "Fetch successfull</br>";
 		mysql_close($conn);
 		return $result;		 
 	}
 
-	function deleteRecord($_id)
+	function deleteRecord($i_id)
 	{
 	 	$conn = DBConnection();
-		mysql_select_db($GLOBALS['dbname']);
-
-		if(! mysql_query("DELETE FROM issues WHERE _id='$_id'"))
+		mysql_select_db($GLOBAL['dbname']);
+		if(! mysql_query("DELETE FROM".$GLOBAL['temp_jira_table']."WHERE _id='$i_id'"))
 			echo "Error ".mysql_error();
 		 
-
 		mysql_close($conn);
 	}
 
