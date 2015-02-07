@@ -12,7 +12,7 @@ $dbuser = "root";
 $dbpass = "root";
 $dbname = 'woisesdb';
 $temp_jira_table = "jira_temp";
-$master_table = "woises";
+$master_table = "capturewoises";
 
 //email
 $email_hostname = '{imap.mail.me.com:993/imap/ssl}INBOX';
