@@ -80,7 +80,7 @@
 		$conn = DBConnection();		
 		mysql_select_db($GLOBALS['dbname']);
 
-		$sql = "INSERT INTO ".$GLOBAL['temp_jira_table']."(project_key,summary,description,issuetype) VALUES('$project_key','$summary','$description','$issuetype')";
+		$sql = "INSERT INTO ".$GLOBALS['temp_jira_table']."(project_key,summary,description,issuetype) VALUES('$project_key','$summary','$description','$issuetype')";
 						
 		if(mysql_query($sql,$conn))
 			echo " New record updated!!</br>";
