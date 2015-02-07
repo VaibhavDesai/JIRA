@@ -58,7 +58,7 @@
 
 		$sqlupdate = "UPDATE ".$GLOBALS['master_table']." SET SUMMARY='$summary',DESCRIPTION='$nd',issuetype='$issuetype', issuetype='$priority',issuestatus='$status' WHERE jira_id='$id'";
 		
-		$record_check = "SELECT 1 FROM issues WHERE i_id='$id'";
+		$record_check = "SELECT 1 FROM ".$GLOBALS['master_table']." WHERE jira_id='$id'";
 		if(mysql_num_rows(mysql_query($record_check,$conn))== 0)
 			if(mysql_query($sql,$conn))
 				echo " --->new record created</br>";
