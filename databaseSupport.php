@@ -107,7 +107,7 @@
 	{
 	 	$conn = DBConnection();
 		mysql_select_db($GLOBALS['dbname']);
-		if(! mysql_query("DELETE FROM".$GLOBALS['temp_jira_table']."WHERE _id='$i_id'"))
+		if(! mysql_query("DELETE FROM ".$GLOBALS['temp_jira_table']." WHERE _id = '$i_id'"))
 			echo "Error ".mysql_error();
 		 
 		mysql_close($conn);
