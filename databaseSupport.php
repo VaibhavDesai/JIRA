@@ -92,9 +92,9 @@
 	function fetchTempData()
 	{	 
 	 	$conn = DBConnection();
-		mysql_select_db($GLOBAL['dbname']);
+		mysql_select_db($GLOBALS['dbname']);
 
-		$sql = 'SELECT _id,project_key,summary,description,issuetype FROM '.$GLOBAL['temp_jira_table'];
+		$sql = 'SELECT _id,project_key,summary,description,issuetype FROM '.$GLOBALS['temp_jira_table'];
 		$result = mysql_query($sql,$conn);
 		if(! $result)
 			{ die("Couldnt get data:".mysql_error());}
@@ -106,8 +106,8 @@
 	function deleteRecord($i_id)
 	{
 	 	$conn = DBConnection();
-		mysql_select_db($GLOBAL['dbname']);
-		if(! mysql_query("DELETE FROM".$GLOBAL['temp_jira_table']."WHERE _id='$i_id'"))
+		mysql_select_db($GLOBALS['dbname']);
+		if(! mysql_query("DELETE FROM".$GLOBALS['temp_jira_table']."WHERE _id='$i_id'"))
 			echo "Error ".mysql_error();
 		 
 		mysql_close($conn);
