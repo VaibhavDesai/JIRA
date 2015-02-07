@@ -7,10 +7,12 @@ $project_key = 'WOIS';
 $base_url = 'https://ravikiran.atlassian.net';
 
 //db settings.
-$dbhost = "localhost:3036";
+$dbhost = "173.194.235.122";
 $dbuser = "root";
 $dbpass = "root";
-$dbname = 'jira_temp';
+$dbname = 'woisesdb';
+$temp_jira_table = "jira_temp";
+$master_table = "woises";
 
 //email
 $email_hostname = '{imap.mail.me.com:993/imap/ssl}INBOX';
